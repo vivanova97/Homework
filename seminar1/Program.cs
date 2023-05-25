@@ -13,7 +13,8 @@
     {
         Console.WriteLine(($"{num1} is less than {num2}"));
     };  
-};
+}
+
 
 void Task2()
 {
@@ -71,9 +72,18 @@ void Task4()
     { 
         Console.WriteLine("Error: Enter a number greater than 1");
     };
-};
+}
 
+int InputNumber(string text)
+{
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
 
+int num1 = InputNumber("Enter a number:");
+int num2 = InputNumber("Enter a number:");
+if (num1 * num1 == num2 || num2 *num2 == num1) Console.WriteLine($"{num1} is dividable by 7 and 23");
+else Console.WriteLine($"Некратно 7 and 23");
 
 
 
