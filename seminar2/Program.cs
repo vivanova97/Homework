@@ -58,7 +58,7 @@ void Task3()
 // char[] numArr = numStr.ToArray();
 // Console.WriteLine(numArr[2]);
 
-Task2();
+
 
 
 
