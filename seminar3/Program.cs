@@ -6,8 +6,23 @@
 // 1. Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 void Problem1()
 {
+    Console.Write("Enter a 5-digit number: ");
+    string num = Console.ReadLine();
+    int ln = num.Length;
+    int center = ln/2;
 
+    for (int i = 0, length = ln - 1; i < center; i++, length--) 
+    {
+        if (num[i] != num[length]) 
+        {
+            Console.WriteLine($"The number {num} is not a polyndrom.");
+            return;
+        }
+    }
+
+    Console.WriteLine($"The number {num} is polyndrom");
 }
+    
 
 // 2. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 void Problem2()
@@ -43,5 +58,5 @@ void Problem3()
         Console.WriteLine("Error: Enter a number greater than zero.");
     }
 }
-Problem3();
+
 
