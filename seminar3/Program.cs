@@ -1,4 +1,24 @@
-﻿int InputNumber (string text)
+﻿//Меню для выбора задачи.
+Console.WriteLine("1 - Является ли пяти значное число палиндромом?\n2 - Расстояние между двумя точками в 3D пространстве.\n3 - Таблица кубов чисел от 1 до N.");
+int taskNumber = InputNumber("Введите номер задачи которую хотите выполнить: ");
+
+switch (taskNumber)
+{
+    case 1:
+        Problem1();
+        break;
+    case 2:
+        Problem2();
+        break;
+    case 3: 
+        Problem3();
+        break;
+    default: 
+        Console.WriteLine("Не верный номер задачи, ведите номер задачи от 1 до 3.");
+        break;
+}
+
+int InputNumber (string text)
 {
     Console.Write(text);
     return Convert.ToInt32(Console.ReadLine());
