@@ -2,33 +2,34 @@
 // Найдите разницу между максимальным и минимальным элементами массива.
 
 int size = 12;
-int[] array = new int[size];
+decimal[] array = new decimal[size];
 Random randNum = new Random();
 
 //Filling array with random integers.
-void FillArrayWithRandom(int[] array, int startRange, int endRange)
+void FillArrayWithRandom(decimal[] array, double startRange, double endRange)
 {
     endRange++;
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = randNum.Next(startRange,endRange);
+        decimal newValue = new decimal(randNum.NextDouble());
+        array[i] = Math.Round(newValue * 100, 2);
     }
 }
 
 //Printing array.
-void PrintArray(int[] array)
+void PrintArray(decimal[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]} ");
+        Console.Write($"{array[i]}, ");
     }
     Console.WriteLine();
 }
 
 //Finding max number in array.
-int MaxNum(int[] array)
+decimal MaxNum(decimal[] array)
 {
-    int maxNum = array[0];
+    decimal maxNum = array[0];
     for (int i = 1; i < array.Length; i++)
     {
         if (maxNum < array[i]) maxNum = array[i];
@@ -37,9 +38,9 @@ int MaxNum(int[] array)
 }
 
 //Finding min number in array.
-int MinNum(int[] array)
+decimal MinNum(decimal[] array)
 {
-    int minNum = array[0];
+    decimal minNum = array[0];
     for (int i = 1; i < array.Length; i++)
     {
         if (minNum  > array[i]) minNum = array[i];
@@ -48,9 +49,9 @@ int MinNum(int[] array)
 }
 
 //Finding difference between the max and min number in array.
-int DifferenceBetweenMaxMin(int maxNumber, int MinNumber)
+decimal DifferenceBetweenMaxMin(decimal maxNumber, decimal MinNumber)
 {
-    int difference = MaxNum(array) - MinNum(array);
+    decimal difference = maxNumber - MinNumber;
     return difference;
 }
 
