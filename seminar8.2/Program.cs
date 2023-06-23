@@ -40,37 +40,41 @@ int numberOfRows = Input("Please enter the number of rows: ");
 int numberOfColumns = Input("Please enter the number of columns: ");
 int[,] matrix = new int[numberOfRows,numberOfColumns];
 
+
+
+
 //Finding row with the lowest sum. 
 // !! Здесь ввывод для пользователя, то-есть ввыводится номер строки а не индекс 
 void RowWithLowestSum(int[,] matrix)
 {
     int sum = 0;
-    int previousSum = 0;
+    int sumTemp = 0;
     int lowestSum = 0;
     int lowestSumRowNum = 0;
-     for (int i = 1; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < 1; i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++) 
         {
-            sum += matrix[i,j];
-            previousSum += matrix[i-1, j]; 
+            lowestSum += matrix[i,j];
+            lowestSumRowNum = i+1;
         }
-        if (sum < previousSum) 
+    }
+    for (int i = 1; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++) 
+        {
+            sumTemp += matrix[i,j];
+        }
+        sum = sumTemp;
+        sumTemp = 0;
+        if (sum < lowestSum)
         {
             lowestSum = sum;
-            lowestSumRowNum = i+1; //Ввывод для пользователя, ввыводится номер строки а не индекс.
+            lowestSumRowNum = i+1;
         }
-        else 
-        {
-            lowestSum = previousSum;
-            lowestSumRowNum = i;
-        }
-        sum = 0;
-        previousSum = 0;
     }
     Console.WriteLine($"The row with the lowest sum is row {lowestSumRowNum}");
 }
-
 FillMatrix(matrix, 1, 10);
 PrintMatrix(matrix);
 RowWithLowestSum(matrix);
